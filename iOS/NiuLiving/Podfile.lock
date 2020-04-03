@@ -1,0 +1,51 @@
+PODS:
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - Bugsnag (5.15.4)
+  - HappyDNS (0.3.12)
+  - PLMediaStreamingKit (2.3.1):
+    - PLMediaStreamingKit/iphoneos (= 2.3.1)
+  - PLMediaStreamingKit/iphoneos (2.3.1)
+  - PLPlayerKit (3.2.1):
+    - HappyDNS (~> 0.3.10)
+    - PLPlayerKit/iphoneos (= 3.2.1)
+  - PLPlayerKit/iphoneos (3.2.1):
+    - HappyDNS (~> 0.3.10)
+
+DEPENDENCIES:
+  - BlocksKit (= 2.2.5)
+  - Bugsnag (= 5.15.4)
+  - PLMediaStreamingKit
+  - PLPlayerKit
+
+SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - BlocksKit
+    - Bugsnag
+    - HappyDNS
+    - PLMediaStreamingKit
+    - PLPlayerKit
+
+SPEC CHECKSUMS:
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  Bugsnag: df1d395695ddf795aa35c23ef4eaef4a04ddcffd
+  HappyDNS: 691a3041128055d09866f86e6e9ca90f24da1f18
+  PLMediaStreamingKit: 0ce240ed28fe73b2132ce0810190728799700da7
+  PLPlayerKit: ee7b8440c0f7b3603974ebe39de341160fafec88
+
+PODFILE CHECKSUM: f30f9229f0b96c228c7e6f972ddc34f0b9e0138a
+
+COCOAPODS: 1.9.1
