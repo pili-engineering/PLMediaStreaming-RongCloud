@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="playButton" destination="nC1-HM-cdW" id="Cha-Kd-lvT"/>
+                <outlet property="pushButton" destination="fuy-6R-z6l" id="uAr-j3-UhE"/>
+                <outlet property="settingButton" destination="z3s-o1-RJu" id="yzI-AJ-ZPB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 13.png" translatesAutoresizingMaskIntoConstraints="NO" id="d8w-xP-pls">
+                    <rect key="frame" x="146" y="97" width="82" height="82"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="82" id="Cil-ci-fYU"/>
+                        <constraint firstAttribute="width" constant="82" id="KSI-q3-RFv"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牛直播" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q8-LI-AW0">
+                    <rect key="frame" x="151" y="199" width="73" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="牛.png" translatesAutoresizingMaskIntoConstraints="NO" id="Loq-8q-89a">
+                    <rect key="frame" x="175" y="336" width="200" height="331"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC1-HM-cdW">
+                    <rect key="frame" x="67" y="448" width="240" height="40"/>
+                    <color key="backgroundColor" red="0.054901960780000002" green="0.71764705880000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="VwI-c2-jI4"/>
+                        <constraint firstAttribute="width" constant="240" id="ea0-DG-cE8"/>
+                    </constraints>
+                    <state key="normal" title="播放"/>
+                    <connections>
+                        <action selector="playAction:" destination="-1" eventType="touchUpInside" id="ZH0-kj-fQ9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuy-6R-z6l">
+                    <rect key="frame" x="67" y="378" width="240" height="40"/>
+                    <color key="backgroundColor" red="0.054901960784313725" green="0.71764705882352942" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="LRb-lP-VfV"/>
+                        <constraint firstAttribute="height" constant="40" id="M3B-5x-h0C"/>
+                    </constraints>
+                    <state key="normal" title="推流"/>
+                    <connections>
+                        <action selector="pushAction:" destination="-1" eventType="touchUpInside" id="Psq-vi-TQW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3s-o1-RJu">
+                    <rect key="frame" x="330" y="40" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Tie-lh-PEe"/>
+                        <constraint firstAttribute="width" constant="30" id="gQ9-XR-iKK"/>
+                    </constraints>
+                    <state key="normal" image="set.png"/>
+                    <connections>
+                        <action selector="settingAction:" destination="-1" eventType="touchUpInside" id="6Ba-2S-UwZ"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="vWX-A6-61n">
+                    <rect key="frame" x="212" y="391" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="6DF-3q-JEW"/>
+                        <constraint firstAttribute="height" constant="15" id="hc1-bR-kFc"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-f7-r11">
+                    <rect key="frame" x="212" y="460.5" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="Hse-Av-r0w"/>
+                        <constraint firstAttribute="height" constant="15" id="ZdQ-sh-MrF"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="ukh-uu-Pob"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="yty-Sy-i2N"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Loq-8q-89a" secondAttribute="bottom" id="1vs-Jt-dP6"/>
+                <constraint firstItem="zcp-f7-r11" firstAttribute="centerY" secondItem="nC1-HM-cdW" secondAttribute="centerY" id="2Ic-Pr-5PY"/>
+                <constraint firstItem="6Q8-LI-AW0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8Gg-2b-C5K"/>
+                <constraint firstItem="nC1-HM-cdW" firstAttribute="top" secondItem="fuy-6R-z6l" secondAttribute="bottom" constant="30" id="Amx-Eg-MEm"/>
+                <constraint firstAttribute="trailing" secondItem="Loq-8q-89a" secondAttribute="trailing" id="G4m-cP-ak6"/>
+                <constraint firstItem="z3s-o1-RJu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="I9j-1w-blW"/>
+                <constraint firstItem="d8w-xP-pls" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NFU-kK-Lba"/>
+                <constraint firstAttribute="trailing" secondItem="z3s-o1-RJu" secondAttribute="trailing" constant="15" id="TgR-7n-6Rr"/>
+                <constraint firstItem="vWX-A6-61n" firstAttribute="leading" secondItem="fuy-6R-z6l" secondAttribute="trailing" constant="-95" id="XoL-8l-LQA"/>
+                <constraint firstItem="nC1-HM-cdW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YmG-IO-f1B"/>
+                <constraint firstAttribute="bottom" secondItem="nC1-HM-cdW" secondAttribute="bottom" constant="179" id="fBY-YB-AaV"/>
+                <constraint firstItem="6Q8-LI-AW0" firstAttribute="top" secondItem="d8w-xP-pls" secondAttribute="bottom" constant="20" id="gg4-PU-iVf"/>
+                <constraint firstItem="vWX-A6-61n" firstAttribute="centerY" secondItem="fuy-6R-z6l" secondAttribute="centerY" id="hG7-LZ-Tgo"/>
+                <constraint firstItem="zcp-f7-r11" firstAttribute="centerX" secondItem="vWX-A6-61n" secondAttribute="centerX" id="j3E-JS-KP5"/>
+                <constraint firstItem="fuy-6R-z6l" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="soX-Fp-m69"/>
+                <constraint firstItem="d8w-xP-pls" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="97" id="ybM-HF-RSS"/>
+            </constraints>
+            <point key="canvasLocation" x="187" y="50"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Group 13.png" width="82" height="82"/>
+        <image name="go.png" width="15" height="15"/>
+        <image name="set.png" width="20" height="20"/>
+        <image name="牛.png" width="200" height="331"/>
+    </resources>
+</document>

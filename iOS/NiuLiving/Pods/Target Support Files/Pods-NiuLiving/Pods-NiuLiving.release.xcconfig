@@ -1,0 +1,12 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/PLMediaStreamingKit/Pod/Library" "${PODS_ROOT}/PLPlayerKit/Pod/Library"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BlocksKit" "${PODS_ROOT}/Headers/Public/Bugsnag" "${PODS_ROOT}/Headers/Public/HappyDNS"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/BlocksKit" "${PODS_CONFIGURATION_BUILD_DIR}/Bugsnag" "${PODS_CONFIGURATION_BUILD_DIR}/HappyDNS"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BlocksKit" -isystem "${PODS_ROOT}/Headers/Public/Bugsnag" -isystem "${PODS_ROOT}/Headers/Public/HappyDNS" -iframework "${PODS_ROOT}/PLMediaStreamingKit/Pod/Library" -iframework "${PODS_ROOT}/PLPlayerKit/Pod/Library"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"BlocksKit" -l"Bugsnag" -l"HappyDNS" -l"bz2" -l"c++" -l"iconv" -l"icucore" -l"resolv" -l"sqlite3" -l"z" -framework "AVFoundation" -framework "AVKit" -framework "Accelerate" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreAudio" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreTelephony" -framework "CoreVideo" -framework "Foundation" -framework "HappyDNS" -framework "MediaPlayer" -framework "MessageUI" -framework "OpenGLES" -framework "PLMediaStreamingKit" -framework "PLPlayerKit" -framework "QuartzCore" -framework "SystemConfiguration" -framework "UIKit" -framework "VideoToolbox"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
