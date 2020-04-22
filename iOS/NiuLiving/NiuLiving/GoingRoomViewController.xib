@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,6 +12,7 @@
                 <outlet property="backButton" destination="hrv-8s-PlB" id="lZd-a4-aEI"/>
                 <outlet property="goingRoomButton" destination="nWh-XU-E0x" id="go6-SZ-Hit"/>
                 <outlet property="goingRoomTextField" destination="L35-pY-T0u" id="t0k-D4-erD"/>
+                <outlet property="userNameTextField" destination="F0h-dc-LKe" id="gxF-H4-VyH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,7 +42,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="URL"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWh-XU-E0x">
-                    <rect key="frame" x="37.5" y="181" width="300" height="43"/>
+                    <rect key="frame" x="37.5" y="252" width="300" height="43"/>
                     <color key="backgroundColor" red="0.054901960784313725" green="0.71764705882352942" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="观看直播">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,18 +51,30 @@
                         <action selector="goingRoomAction:" destination="-1" eventType="touchUpInside" id="GEB-yx-cb8"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="清输入名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F0h-dc-LKe">
+                    <rect key="frame" x="37.5" y="181" width="300" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="GV6-bq-gux"/>
+                        <constraint firstAttribute="width" constant="300" id="U1P-lT-9i7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="L35-pY-T0u" firstAttribute="top" secondItem="hrv-8s-PlB" secondAttribute="bottom" constant="40" id="1fu-P1-nbA"/>
                 <constraint firstItem="nWh-XU-E0x" firstAttribute="width" secondItem="L35-pY-T0u" secondAttribute="width" id="RBt-cd-khB"/>
                 <constraint firstItem="L35-pY-T0u" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Th3-PF-YKk"/>
+                <constraint firstItem="nWh-XU-E0x" firstAttribute="top" secondItem="F0h-dc-LKe" secondAttribute="bottom" constant="28" id="U9C-Mi-KLU"/>
                 <constraint firstItem="hrv-8s-PlB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="V9j-Zz-CBJ"/>
-                <constraint firstItem="nWh-XU-E0x" firstAttribute="top" secondItem="L35-pY-T0u" secondAttribute="bottom" constant="28" id="XDS-wb-eww"/>
                 <constraint firstItem="hrv-8s-PlB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="a4N-9J-yA1"/>
+                <constraint firstItem="F0h-dc-LKe" firstAttribute="centerX" secondItem="L35-pY-T0u" secondAttribute="centerX" id="dGo-eH-p6C"/>
+                <constraint firstItem="F0h-dc-LKe" firstAttribute="top" secondItem="L35-pY-T0u" secondAttribute="bottom" constant="28" id="dOW-FP-Gnc"/>
                 <constraint firstItem="nWh-XU-E0x" firstAttribute="height" secondItem="L35-pY-T0u" secondAttribute="height" id="jMj-iW-FMz"/>
                 <constraint firstItem="nWh-XU-E0x" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="k5n-EY-cPG"/>
             </constraints>
+            <point key="canvasLocation" x="138" y="136"/>
         </view>
     </objects>
     <resources>

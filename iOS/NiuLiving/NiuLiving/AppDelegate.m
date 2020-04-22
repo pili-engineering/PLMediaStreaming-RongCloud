@@ -10,6 +10,8 @@
 #import "HomeViewController.h"
 #import <PLMediaStreamingKit/PLMediaStreamingKit.h>
 #import <Bugsnag.h>
+#import "RCCRRongCloudIMManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,7 +22,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Bugsnag startBugsnagWithApiKey:@"f8173cc59cf479b26f2a1fe6661058ee"];
     
-    // Override point for customization after application launch.
     [PLStreamingEnv initEnv];
     HomeViewController *homeViewController = [[HomeViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
@@ -31,7 +32,7 @@
     self.window.rootViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
     UIViewAutoresizingFlexibleHeight;
     [self.window makeKeyAndVisible];
-    
+    [[RCCRRongCloudIMManager sharedRCCRRongCloudIMManager] initRongCloud:RCIMAPPKey];
     return YES;
 }
 

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *createRoomButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *userClareButton;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 
 @end

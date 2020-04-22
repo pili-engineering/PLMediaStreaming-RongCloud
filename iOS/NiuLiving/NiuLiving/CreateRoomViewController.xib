@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +13,7 @@
                 <outlet property="createRoomButton" destination="raF-oa-psJ" id="oNh-iG-lwH"/>
                 <outlet property="createRoomTextField" destination="MWY-lB-Kmk" id="k4P-rA-km0"/>
                 <outlet property="userClareButton" destination="cVX-Od-QXl" id="Tzk-xk-er8"/>
+                <outlet property="userNameTextField" destination="c5L-az-4ou" id="pL3-9Y-895"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,8 +42,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" keyboardType="URL"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raF-oa-psJ">
-                    <rect key="frame" x="37.5" y="181" width="300" height="43"/>
+                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raF-oa-psJ">
+                    <rect key="frame" x="37.5" y="252" width="300" height="43"/>
                     <color key="backgroundColor" red="0.054901960784313725" green="0.71764705882352942" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="创建直播">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,10 +53,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yz-XB-lxW">
-                    <rect key="frame" x="107.5" y="244" width="160" height="22"/>
+                    <rect key="frame" x="107.5" y="315" width="160" height="21"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeB-fh-STm">
-                            <rect key="frame" x="42.5" y="0.0" width="117.5" height="22"/>
+                            <rect key="frame" x="54" y="0.0" width="106" height="21"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="牛直播用户协议"/>
                             <connections>
@@ -65,7 +64,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同意" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrs-NX-yvL">
-                            <rect key="frame" x="17" y="0.0" width="25" height="21"/>
+                            <rect key="frame" x="29" y="0.0" width="25" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="AAg-14-5CO"/>
                                 <constraint firstAttribute="height" constant="21" id="ukf-BV-FKP"/>
@@ -81,7 +80,7 @@
                             </variation>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVX-Od-QXl">
-                            <rect key="frame" x="0.0" y="1" width="12" height="20"/>
+                            <rect key="frame" x="0.0" y="0.5" width="24" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="dEy-M9-pZB"/>
                             </constraints>
@@ -117,15 +116,26 @@
                         </mask>
                     </variation>
                 </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5L-az-4ou">
+                    <rect key="frame" x="37.5" y="181" width="300" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="9nC-7Q-2Pd"/>
+                        <constraint firstAttribute="width" constant="300" id="TKc-In-ADF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="60b-75-Jzu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="1aO-mJ-WP9"/>
+                <constraint firstItem="c5L-az-4ou" firstAttribute="centerX" secondItem="MWY-lB-Kmk" secondAttribute="centerX" id="3ML-FY-Rmu"/>
+                <constraint firstItem="raF-oa-psJ" firstAttribute="top" secondItem="c5L-az-4ou" secondAttribute="bottom" constant="28" id="Cc5-Sv-YKh"/>
                 <constraint firstItem="raF-oa-psJ" firstAttribute="width" secondItem="MWY-lB-Kmk" secondAttribute="width" id="GPM-tT-PHP"/>
                 <constraint firstItem="raF-oa-psJ" firstAttribute="height" secondItem="MWY-lB-Kmk" secondAttribute="height" id="M0O-ei-zv0"/>
+                <constraint firstItem="c5L-az-4ou" firstAttribute="top" secondItem="MWY-lB-Kmk" secondAttribute="bottom" constant="28" id="R8o-rl-CPv"/>
                 <constraint firstItem="MWY-lB-Kmk" firstAttribute="top" secondItem="60b-75-Jzu" secondAttribute="bottom" constant="40" id="Skx-fr-0Fr"/>
                 <constraint firstItem="60b-75-Jzu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Vhy-Lj-GlN"/>
-                <constraint firstItem="raF-oa-psJ" firstAttribute="top" secondItem="MWY-lB-Kmk" secondAttribute="bottom" constant="28" id="byV-Ph-Q6H"/>
                 <constraint firstItem="9yz-XB-lxW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hQ3-fE-RHB"/>
                 <constraint firstItem="raF-oa-psJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ip2-iM-xnX"/>
                 <constraint firstItem="MWY-lB-Kmk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jyI-3V-Ksa"/>

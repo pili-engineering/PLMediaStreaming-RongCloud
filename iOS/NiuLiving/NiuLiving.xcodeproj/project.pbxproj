@@ -117,6 +117,35 @@
 		93D16BC520638CD300CEE35D /* user_declare.html in Resources */ = {isa = PBXBuildFile; fileRef = 93D16BC420638CD200CEE35D /* user_declare.html */; };
 		93E35B412057C26300D70367 /* dropdownMenu_cornerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E35B3E2057C26300D70367 /* dropdownMenu_cornerIcon.png */; };
 		93E35B422057C26300D70367 /* LMJDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E35B402057C26300D70367 /* LMJDropdownMenu.m */; };
+		D54F6432244D487100930D32 /* RCCRGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F6431244D487100930D32 /* RCCRGiftModel.m */; };
+		D54F6438244D73ED00930D32 /* RCCRRongCloudIMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F6434244D73ED00930D32 /* RCCRRongCloudIMManager.m */; };
+		D54F6439244D73ED00930D32 /* RCCRLiveHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F6435244D73ED00930D32 /* RCCRLiveHttpManager.m */; };
+		D54F6441244D73FD00930D32 /* RCCRGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F643B244D73FD00930D32 /* RCCRGiftCollectionViewCell.m */; };
+		D54F6442244D73FD00930D32 /* RCCRGiftNumberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F643C244D73FD00930D32 /* RCCRGiftNumberLabel.m */; };
+		D54F6443244D73FD00930D32 /* RCCRGiftListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D54F643F244D73FD00930D32 /* RCCRGiftListView.m */; };
+		D5E49A81243DDB0200132A82 /* RCChatroomBarrage.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A56243DDB0100132A82 /* RCChatroomBarrage.m */; };
+		D5E49A84243DDB0200132A82 /* RCChatroomGift.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A5B243DDB0100132A82 /* RCChatroomGift.m */; };
+		D5E49A85243DDB0200132A82 /* RCChatroomWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A5C243DDB0100132A82 /* RCChatroomWelcome.m */; };
+		D5E49A86243DDB0200132A82 /* RCChatroomEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A5E243DDB0100132A82 /* RCChatroomEnd.m */; };
+		D5E49A89243DDB0200132A82 /* RCChatroomLike.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A65243DDB0100132A82 /* RCChatroomLike.m */; };
+		D5E49A8A243DDB0200132A82 /* RCCRTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A67243DDB0100132A82 /* RCCRTextMessageCell.m */; };
+		D5E49A8B243DDB0200132A82 /* RCCRMessageBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A68243DDB0100132A82 /* RCCRMessageBaseCell.m */; };
+		D5E49A8C243DDB0200132A82 /* RCChatroomStart.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A6B243DDB0100132A82 /* RCChatroomStart.m */; };
+		D5E49A8D243DDB0200132A82 /* RCChatroomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A6E243DDB0100132A82 /* RCChatroomNotification.m */; };
+		D5E49A8F243DDB0200132A82 /* RCChatroomUserQuit.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A73243DDB0100132A82 /* RCChatroomUserQuit.m */; };
+		D5E49AA3243DDC2400132A82 /* RCCRMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A9C243DDC2400132A82 /* RCCRMessageModel.m */; };
+		D5E49AA4243DDC2400132A82 /* RCCRLiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A9D243DDC2400132A82 /* RCCRLiveModel.m */; };
+		D5E49AA5243DDC2400132A82 /* RCCRAudienceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49A9E243DDC2400132A82 /* RCCRAudienceModel.m */; };
+		D5E49ACA243ED33A00132A82 /* RCCRInputBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AC1243ED33A00132A82 /* RCCRInputBarControl.m */; };
+		D5E49ACB243ED33A00132A82 /* RCCRInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AC3243ED33A00132A82 /* RCCRInputView.m */; };
+		D5E49ACC243ED33A00132A82 /* RCCREmojiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AC5243ED33A00132A82 /* RCCREmojiCollectionCell.m */; };
+		D5E49ACD243ED33A00132A82 /* RCCREmojiBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AC9243ED33A00132A82 /* RCCREmojiBoardView.m */; };
+		D5E49AE1243ED4E700132A82 /* RCCRUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AD6243ED4E600132A82 /* RCCRUtilities.m */; };
+		D5E49AE8243ED65700132A82 /* RCChatRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AE6243ED65700132A82 /* RCChatRoomView.m */; };
+		D5E49AF6243F0F8600132A82 /* RCDDanmakuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AEF243F0F8600132A82 /* RCDDanmakuManager.m */; };
+		D5E49AF7243F0F8600132A82 /* RCDDanmakuInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AF3243F0F8600132A82 /* RCDDanmakuInfo.m */; };
+		D5E49AF8243F0F8600132A82 /* RCDDanmaku.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AF4243F0F8600132A82 /* RCDDanmaku.m */; };
+		D5E49AF9243F0F8600132A82 /* UIView+RCDDanmaku.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E49AF5243F0F8600132A82 /* UIView+RCDDanmaku.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +285,64 @@
 		93E35B3E2057C26300D70367 /* dropdownMenu_cornerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownMenu_cornerIcon.png; sourceTree = "<group>"; };
 		93E35B3F2057C26300D70367 /* LMJDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMJDropdownMenu.h; sourceTree = "<group>"; };
 		93E35B402057C26300D70367 /* LMJDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMJDropdownMenu.m; sourceTree = "<group>"; };
+		D54F6430244D487100930D32 /* RCCRGiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRGiftModel.h; sourceTree = "<group>"; };
+		D54F6431244D487100930D32 /* RCCRGiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRGiftModel.m; sourceTree = "<group>"; };
+		D54F6434244D73ED00930D32 /* RCCRRongCloudIMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRRongCloudIMManager.m; sourceTree = "<group>"; };
+		D54F6435244D73ED00930D32 /* RCCRLiveHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRLiveHttpManager.m; sourceTree = "<group>"; };
+		D54F6436244D73ED00930D32 /* RCCRRongCloudIMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRRongCloudIMManager.h; sourceTree = "<group>"; };
+		D54F6437244D73ED00930D32 /* RCCRLiveHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRLiveHttpManager.h; sourceTree = "<group>"; };
+		D54F643B244D73FD00930D32 /* RCCRGiftCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRGiftCollectionViewCell.m; sourceTree = "<group>"; };
+		D54F643C244D73FD00930D32 /* RCCRGiftNumberLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRGiftNumberLabel.m; sourceTree = "<group>"; };
+		D54F643D244D73FD00930D32 /* RCCRGiftListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRGiftListView.h; sourceTree = "<group>"; };
+		D54F643E244D73FD00930D32 /* RCCRGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRGiftCollectionViewCell.h; sourceTree = "<group>"; };
+		D54F643F244D73FD00930D32 /* RCCRGiftListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRGiftListView.m; sourceTree = "<group>"; };
+		D54F6440244D73FD00930D32 /* RCCRGiftNumberLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRGiftNumberLabel.h; sourceTree = "<group>"; };
+		D5E49A54243DDB0100132A82 /* RCChatroomNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomNotification.h; sourceTree = "<group>"; };
+		D5E49A55243DDB0100132A82 /* RCChatroomStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomStart.h; sourceTree = "<group>"; };
+		D5E49A56243DDB0100132A82 /* RCChatroomBarrage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomBarrage.m; sourceTree = "<group>"; };
+		D5E49A58243DDB0100132A82 /* RCChatroomLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomLike.h; sourceTree = "<group>"; };
+		D5E49A5B243DDB0100132A82 /* RCChatroomGift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomGift.m; sourceTree = "<group>"; };
+		D5E49A5C243DDB0100132A82 /* RCChatroomWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomWelcome.m; sourceTree = "<group>"; };
+		D5E49A5D243DDB0100132A82 /* RCChatroomUserQuit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomUserQuit.h; sourceTree = "<group>"; };
+		D5E49A5E243DDB0100132A82 /* RCChatroomEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomEnd.m; sourceTree = "<group>"; };
+		D5E49A65243DDB0100132A82 /* RCChatroomLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomLike.m; sourceTree = "<group>"; };
+		D5E49A67243DDB0100132A82 /* RCCRTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRTextMessageCell.m; sourceTree = "<group>"; };
+		D5E49A68243DDB0100132A82 /* RCCRMessageBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRMessageBaseCell.m; sourceTree = "<group>"; };
+		D5E49A69243DDB0100132A82 /* RCCRTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRTextMessageCell.h; sourceTree = "<group>"; };
+		D5E49A6A243DDB0100132A82 /* RCCRMessageBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRMessageBaseCell.h; sourceTree = "<group>"; };
+		D5E49A6B243DDB0100132A82 /* RCChatroomStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomStart.m; sourceTree = "<group>"; };
+		D5E49A6C243DDB0100132A82 /* RCChatroomBarrage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomBarrage.h; sourceTree = "<group>"; };
+		D5E49A6E243DDB0100132A82 /* RCChatroomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomNotification.m; sourceTree = "<group>"; };
+		D5E49A70243DDB0100132A82 /* RCChatroomEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomEnd.h; sourceTree = "<group>"; };
+		D5E49A71243DDB0100132A82 /* RCChatroomGift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomGift.h; sourceTree = "<group>"; };
+		D5E49A72243DDB0100132A82 /* RCChatroomWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatroomWelcome.h; sourceTree = "<group>"; };
+		D5E49A73243DDB0100132A82 /* RCChatroomUserQuit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatroomUserQuit.m; sourceTree = "<group>"; };
+		D5E49A98243DDC2400132A82 /* RCCRLiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRLiveModel.h; sourceTree = "<group>"; };
+		D5E49A9A243DDC2400132A82 /* RCCRAudienceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRAudienceModel.h; sourceTree = "<group>"; };
+		D5E49A9C243DDC2400132A82 /* RCCRMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRMessageModel.m; sourceTree = "<group>"; };
+		D5E49A9D243DDC2400132A82 /* RCCRLiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRLiveModel.m; sourceTree = "<group>"; };
+		D5E49A9E243DDC2400132A82 /* RCCRAudienceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRAudienceModel.m; sourceTree = "<group>"; };
+		D5E49AA0243DDC2400132A82 /* RCCRMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRMessageModel.h; sourceTree = "<group>"; };
+		D5E49AC1243ED33A00132A82 /* RCCRInputBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRInputBarControl.m; sourceTree = "<group>"; };
+		D5E49AC2243ED33A00132A82 /* RCCREmojiBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCREmojiBoardView.h; sourceTree = "<group>"; };
+		D5E49AC3243ED33A00132A82 /* RCCRInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRInputView.m; sourceTree = "<group>"; };
+		D5E49AC5243ED33A00132A82 /* RCCREmojiCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCREmojiCollectionCell.m; sourceTree = "<group>"; };
+		D5E49AC6243ED33A00132A82 /* RCCREmojiCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCREmojiCollectionCell.h; sourceTree = "<group>"; };
+		D5E49AC7243ED33A00132A82 /* RCCRInputBarControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRInputBarControl.h; sourceTree = "<group>"; };
+		D5E49AC8243ED33A00132A82 /* RCCRInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRInputView.h; sourceTree = "<group>"; };
+		D5E49AC9243ED33A00132A82 /* RCCREmojiBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCREmojiBoardView.m; sourceTree = "<group>"; };
+		D5E49AD2243ED4E600132A82 /* RCCRUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCRUtilities.h; sourceTree = "<group>"; };
+		D5E49AD6243ED4E600132A82 /* RCCRUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCRUtilities.m; sourceTree = "<group>"; };
+		D5E49AE6243ED65700132A82 /* RCChatRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCChatRoomView.m; sourceTree = "<group>"; };
+		D5E49AE7243ED65700132A82 /* RCChatRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCChatRoomView.h; sourceTree = "<group>"; };
+		D5E49AEE243F0F8600132A82 /* RCDDanmakuInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDDanmakuInfo.h; sourceTree = "<group>"; };
+		D5E49AEF243F0F8600132A82 /* RCDDanmakuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDDanmakuManager.m; sourceTree = "<group>"; };
+		D5E49AF0243F0F8600132A82 /* RCDDanmaku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDDanmaku.h; sourceTree = "<group>"; };
+		D5E49AF1243F0F8600132A82 /* UIView+RCDDanmaku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RCDDanmaku.h"; sourceTree = "<group>"; };
+		D5E49AF2243F0F8600132A82 /* RCDDanmakuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDDanmakuManager.h; sourceTree = "<group>"; };
+		D5E49AF3243F0F8600132A82 /* RCDDanmakuInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDDanmakuInfo.m; sourceTree = "<group>"; };
+		D5E49AF4243F0F8600132A82 /* RCDDanmaku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDDanmaku.m; sourceTree = "<group>"; };
+		D5E49AF5243F0F8600132A82 /* UIView+RCDDanmaku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RCDDanmaku.m"; sourceTree = "<group>"; };
 		EFF84AE5D8A937393628049A /* libPods-NiuLiving.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NiuLiving.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -309,6 +396,7 @@
 		93032F9F20562FC4009E5F9D /* NiuLiving */ = {
 			isa = PBXGroup;
 			children = (
+				D5E49A4F243DDB0100132A82 /* chatRoom */,
 				93032FA020562FC4009E5F9D /* AppDelegate.h */,
 				93032FA120562FC4009E5F9D /* AppDelegate.m */,
 				93032FEB20566543009E5F9D /* HomeViewController.h */,
@@ -483,6 +571,143 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D54F6433244D73ED00930D32 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D54F6434244D73ED00930D32 /* RCCRRongCloudIMManager.m */,
+				D54F6435244D73ED00930D32 /* RCCRLiveHttpManager.m */,
+				D54F6436244D73ED00930D32 /* RCCRRongCloudIMManager.h */,
+				D54F6437244D73ED00930D32 /* RCCRLiveHttpManager.h */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D54F643A244D73FD00930D32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D54F643B244D73FD00930D32 /* RCCRGiftCollectionViewCell.m */,
+				D54F643C244D73FD00930D32 /* RCCRGiftNumberLabel.m */,
+				D54F643D244D73FD00930D32 /* RCCRGiftListView.h */,
+				D54F643E244D73FD00930D32 /* RCCRGiftCollectionViewCell.h */,
+				D54F643F244D73FD00930D32 /* RCCRGiftListView.m */,
+				D54F6440244D73FD00930D32 /* RCCRGiftNumberLabel.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5E49A4F243DDB0100132A82 /* chatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				D5E49AE7243ED65700132A82 /* RCChatRoomView.h */,
+				D5E49AE6243ED65700132A82 /* RCChatRoomView.m */,
+				D5E49AED243F0F8600132A82 /* Danmaku */,
+				D5E49AC0243ED33A00132A82 /* InputBar */,
+				D54F6433244D73ED00930D32 /* Manager */,
+				D5E49A52243DDB0100132A82 /* Message */,
+				D5E49A97243DDC2400132A82 /* Model */,
+				D5E49AD1243ED4E600132A82 /* Utilities */,
+				D54F643A244D73FD00930D32 /* View */,
+			);
+			path = chatRoom;
+			sourceTree = "<group>";
+		};
+		D5E49A52243DDB0100132A82 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D5E49A66243DDB0100132A82 /* Cell */,
+				D5E49A6C243DDB0100132A82 /* RCChatroomBarrage.h */,
+				D5E49A56243DDB0100132A82 /* RCChatroomBarrage.m */,
+				D5E49A70243DDB0100132A82 /* RCChatroomEnd.h */,
+				D5E49A5E243DDB0100132A82 /* RCChatroomEnd.m */,
+				D5E49A71243DDB0100132A82 /* RCChatroomGift.h */,
+				D5E49A5B243DDB0100132A82 /* RCChatroomGift.m */,
+				D5E49A58243DDB0100132A82 /* RCChatroomLike.h */,
+				D5E49A65243DDB0100132A82 /* RCChatroomLike.m */,
+				D5E49A54243DDB0100132A82 /* RCChatroomNotification.h */,
+				D5E49A6E243DDB0100132A82 /* RCChatroomNotification.m */,
+				D5E49A55243DDB0100132A82 /* RCChatroomStart.h */,
+				D5E49A6B243DDB0100132A82 /* RCChatroomStart.m */,
+				D5E49A5D243DDB0100132A82 /* RCChatroomUserQuit.h */,
+				D5E49A73243DDB0100132A82 /* RCChatroomUserQuit.m */,
+				D5E49A72243DDB0100132A82 /* RCChatroomWelcome.h */,
+				D5E49A5C243DDB0100132A82 /* RCChatroomWelcome.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		D5E49A66243DDB0100132A82 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D5E49A6A243DDB0100132A82 /* RCCRMessageBaseCell.h */,
+				D5E49A68243DDB0100132A82 /* RCCRMessageBaseCell.m */,
+				D5E49A69243DDB0100132A82 /* RCCRTextMessageCell.h */,
+				D5E49A67243DDB0100132A82 /* RCCRTextMessageCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D5E49A97243DDC2400132A82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D54F6430244D487100930D32 /* RCCRGiftModel.h */,
+				D54F6431244D487100930D32 /* RCCRGiftModel.m */,
+				D5E49A9A243DDC2400132A82 /* RCCRAudienceModel.h */,
+				D5E49A9E243DDC2400132A82 /* RCCRAudienceModel.m */,
+				D5E49A98243DDC2400132A82 /* RCCRLiveModel.h */,
+				D5E49A9D243DDC2400132A82 /* RCCRLiveModel.m */,
+				D5E49AA0243DDC2400132A82 /* RCCRMessageModel.h */,
+				D5E49A9C243DDC2400132A82 /* RCCRMessageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5E49AC0243ED33A00132A82 /* InputBar */ = {
+			isa = PBXGroup;
+			children = (
+				D5E49AC4243ED33A00132A82 /* Cell */,
+				D5E49AC2243ED33A00132A82 /* RCCREmojiBoardView.h */,
+				D5E49AC9243ED33A00132A82 /* RCCREmojiBoardView.m */,
+				D5E49AC7243ED33A00132A82 /* RCCRInputBarControl.h */,
+				D5E49AC1243ED33A00132A82 /* RCCRInputBarControl.m */,
+				D5E49AC8243ED33A00132A82 /* RCCRInputView.h */,
+				D5E49AC3243ED33A00132A82 /* RCCRInputView.m */,
+			);
+			path = InputBar;
+			sourceTree = "<group>";
+		};
+		D5E49AC4243ED33A00132A82 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D5E49AC5243ED33A00132A82 /* RCCREmojiCollectionCell.m */,
+				D5E49AC6243ED33A00132A82 /* RCCREmojiCollectionCell.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D5E49AD1243ED4E600132A82 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D5E49AD2243ED4E600132A82 /* RCCRUtilities.h */,
+				D5E49AD6243ED4E600132A82 /* RCCRUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D5E49AED243F0F8600132A82 /* Danmaku */ = {
+			isa = PBXGroup;
+			children = (
+				D5E49AF0243F0F8600132A82 /* RCDDanmaku.h */,
+				D5E49AF4243F0F8600132A82 /* RCDDanmaku.m */,
+				D5E49AEE243F0F8600132A82 /* RCDDanmakuInfo.h */,
+				D5E49AF3243F0F8600132A82 /* RCDDanmakuInfo.m */,
+				D5E49AF2243F0F8600132A82 /* RCDDanmakuManager.h */,
+				D5E49AEF243F0F8600132A82 /* RCDDanmakuManager.m */,
+				D5E49AF1243F0F8600132A82 /* UIView+RCDDanmaku.h */,
+				D5E49AF5243F0F8600132A82 /* UIView+RCDDanmaku.m */,
+			);
+			path = Danmaku;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -496,6 +721,7 @@
 				93032F9B20562FC4009E5F9D /* Resources */,
 				279B527C0BCD491D77B407C6 /* [CP] Embed Pods Frameworks */,
 				C163A6939B61CD0D8C9404BB /* Upload Bugsnag dSYM */,
+				4538ED3D4FD09C411687FBFA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -700,6 +926,34 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NiuLiving/Pods-NiuLiving-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4538ED3D4FD09C411687FBFA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NiuLiving/Pods-NiuLiving-resources.sh",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCColor.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NiuLiving/Pods-NiuLiving-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C163A6939B61CD0D8C9404BB /* Upload Bugsnag dSYM */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -740,17 +994,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D54F6443244D73FD00930D32 /* RCCRGiftListView.m in Sources */,
+				D54F6441244D73FD00930D32 /* RCCRGiftCollectionViewCell.m in Sources */,
+				D5E49A8D243DDB0200132A82 /* RCChatroomNotification.m in Sources */,
+				D5E49AA4243DDC2400132A82 /* RCCRLiveModel.m in Sources */,
+				D5E49A89243DDB0200132A82 /* RCChatroomLike.m in Sources */,
+				D54F6439244D73ED00930D32 /* RCCRLiveHttpManager.m in Sources */,
+				D5E49AE1243ED4E700132A82 /* RCCRUtilities.m in Sources */,
+				D5E49ACD243ED33A00132A82 /* RCCREmojiBoardView.m in Sources */,
+				D5E49A81243DDB0200132A82 /* RCChatroomBarrage.m in Sources */,
 				934CC61D205B6CD8008E3EE4 /* PushLiveViewController.m in Sources */,
 				93E35B422057C26300D70367 /* LMJDropdownMenu.m in Sources */,
 				93032FB020562FC4009E5F9D /* main.m in Sources */,
+				D5E49ACA243ED33A00132A82 /* RCCRInputBarControl.m in Sources */,
+				D5E49AE8243ED65700132A82 /* RCChatRoomView.m in Sources */,
+				D5E49AF8243F0F8600132A82 /* RCDDanmaku.m in Sources */,
+				D5E49A86243DDB0200132A82 /* RCChatroomEnd.m in Sources */,
 				93033046205672C4009E5F9D /* GoingRoomViewController.m in Sources */,
 				9303304B20567511009E5F9D /* SettingViewController.m in Sources */,
+				D54F6438244D73ED00930D32 /* RCCRRongCloudIMManager.m in Sources */,
+				D54F6432244D487100930D32 /* RCCRGiftModel.m in Sources */,
+				D5E49A84243DDB0200132A82 /* RCChatroomGift.m in Sources */,
+				D5E49AA5243DDC2400132A82 /* RCCRAudienceModel.m in Sources */,
+				D5E49AA3243DDC2400132A82 /* RCCRMessageModel.m in Sources */,
+				D5E49A8F243DDB0200132A82 /* RCChatroomUserQuit.m in Sources */,
+				D5E49ACB243ED33A00132A82 /* RCCRInputView.m in Sources */,
+				D5E49A8C243DDB0200132A82 /* RCChatroomStart.m in Sources */,
 				934CC59A205A4D7A008E3EE4 /* PLPlayerViewController.m in Sources */,
+				D54F6442244D73FD00930D32 /* RCCRGiftNumberLabel.m in Sources */,
+				D5E49AF6243F0F8600132A82 /* RCDDanmakuManager.m in Sources */,
 				937928D3205F9B8A00F1405A /* UIScrollView+UITouchEvent.m in Sources */,
+				D5E49A8A243DDB0200132A82 /* RCCRTextMessageCell.m in Sources */,
+				D5E49A8B243DDB0200132A82 /* RCCRMessageBaseCell.m in Sources */,
 				9303304120566FD8009E5F9D /* CreateRoomViewController.m in Sources */,
+				D5E49A85243DDB0200132A82 /* RCChatroomWelcome.m in Sources */,
 				93032FA220562FC4009E5F9D /* AppDelegate.m in Sources */,
 				93032FEE20566543009E5F9D /* HomeViewController.m in Sources */,
 				93D16BC220638C9A00CEE35D /* UserDelegateVC.m in Sources */,
+				D5E49AF9243F0F8600132A82 /* UIView+RCDDanmaku.m in Sources */,
+				D5E49AF7243F0F8600132A82 /* RCDDanmakuInfo.m in Sources */,
+				D5E49ACC243ED33A00132A82 /* RCCREmojiCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,13 +1186,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GDFHW66V92;
+				DEVELOPMENT_TEAM = 9CVMN4UZK4;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/NiuLiving/PrefixHeader.pch";
 				INFOPLIST_FILE = NiuLiving/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QiNiuLiving;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiniu.QiNiuLiving1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

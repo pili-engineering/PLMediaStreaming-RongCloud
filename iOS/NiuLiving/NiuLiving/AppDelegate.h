@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define RCIMAPPKey @"pkfcgjstp8vp8"
+#define APPSERVER @"http://seallive.qiniuapi.com/"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

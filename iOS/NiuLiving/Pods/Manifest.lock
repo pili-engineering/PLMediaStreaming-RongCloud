@@ -24,20 +24,25 @@ PODS:
     - PLPlayerKit/iphoneos (= 3.2.1)
   - PLPlayerKit/iphoneos (3.2.1):
     - HappyDNS (~> 0.3.10)
+  - RongCloudIM/IMKit (2.10.4):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.10.4)
 
 DEPENDENCIES:
   - BlocksKit (= 2.2.5)
   - Bugsnag (= 5.15.4)
   - PLMediaStreamingKit
   - PLPlayerKit
+  - RongCloudIM/IMKit
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
+  https://github.com/cocoapods/specs.git:
     - BlocksKit
     - Bugsnag
     - HappyDNS
     - PLMediaStreamingKit
     - PLPlayerKit
+    - RongCloudIM
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
@@ -45,7 +50,8 @@ SPEC CHECKSUMS:
   HappyDNS: 691a3041128055d09866f86e6e9ca90f24da1f18
   PLMediaStreamingKit: 0ce240ed28fe73b2132ce0810190728799700da7
   PLPlayerKit: ee7b8440c0f7b3603974ebe39de341160fafec88
+  RongCloudIM: 741d6f0e655b8fd77c63ee34071d4f9bf146aae6
 
-PODFILE CHECKSUM: f30f9229f0b96c228c7e6f972ddc34f0b9e0138a
+PODFILE CHECKSUM: 4a0b1820c36088b01cad1c0fa2977b5d58ac94b2
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.7.4

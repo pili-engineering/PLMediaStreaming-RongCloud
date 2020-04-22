@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *goingRoomTextField;
 @property (weak, nonatomic) IBOutlet UIButton *goingRoomButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @end

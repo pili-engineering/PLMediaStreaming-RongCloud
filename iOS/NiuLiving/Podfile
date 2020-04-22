@@ -8,4 +8,6 @@ target 'NiuLiving' do
   #pod "PLMediaStreamingKit", :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLMediaStreamingKit/master/PLMediaStreamingKit-Universal.podspec'
   #pod "PLPlayerKit", :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
   pod 'Bugsnag', '5.15.4'
+  pod 'RongCloudIM/IMKit'
+
 end

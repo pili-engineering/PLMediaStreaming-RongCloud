@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCCRLiveModel.h"
 
 @interface PushLiveViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
@@ -27,6 +28,6 @@
 
 @property (nonatomic, strong) NSString *roomName;
 
-- (instancetype)initWithRoomName:(NSString *)roomName;
+- (instancetype)initWithRoomName:(NSString *)roomName model:(RCCRLiveModel*)model;
 
 @end

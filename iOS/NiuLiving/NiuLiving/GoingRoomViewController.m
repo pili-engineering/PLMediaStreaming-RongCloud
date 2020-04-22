@@ -9,6 +9,7 @@
 #import "GoingRoomViewController.h"
 #import "PLPlayerViewController.h"
 #import "UIAlertView+BlocksKit.h"
+#import "RCCRRongCloudIMManager.h"
 
 @interface GoingRoomViewController ()
 
@@ -39,6 +40,11 @@
     self.goingRoomTextField.layer.borderWidth = 0.5f;
     self.goingRoomTextField.layer.cornerRadius = 20;
     self.goingRoomTextField.layer.masksToBounds = YES;
+    
+    self.userNameTextField.layer.borderColor = [[UIColor colorWithRed:199/255.0 green:199/255.0 blue:199/255.0 alpha:1] CGColor];
+    self.userNameTextField.layer.borderWidth = 0.5f;
+    self.userNameTextField.layer.cornerRadius = 20;
+    self.userNameTextField.layer.masksToBounds = YES;
 }
 - (IBAction)backAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -48,8 +54,32 @@
         [self showAlertWithMessage:@"房间名不能为空！！！" completion:nil];
         return;
     }
-    PLPlayerViewController * playerVC = [[PLPlayerViewController alloc] initWithRoomName:self.goingRoomTextField.text];
-    [self presentViewController:playerVC animated:YES completion:nil];
+    [[RCCRRongCloudIMManager sharedRCCRRongCloudIMManager] connectWithUserId:@"" userName:self.userNameTextField.text portraitUri:nil success:^(NSString *userId) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            RCCRLiveModel *model = [[RCCRLiveModel alloc] init];
+            model.audienceAmount = 0;
+            model.fansAmount = 0;
+            model.giftAmount = 0;
+            model.praiseAmount = 0;
+            model.attentionAmount = 0;
+            model.liveMode = RCCRLiveModeAudience;
+            model.roomId = self.goingRoomTextField.text;
+            PLPlayerViewController * playerVC = [[PLPlayerViewController alloc] initWithRoomName:self.goingRoomTextField.text model:model];
+            [self.navigationController pushViewController:playerVC animated:NO];
+            //            [self push:playerVC animated:YES completion:nil];
+        });
+        
+    } error:^(RCConnectErrorCode status) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+        [self showAlertWithMessage:@"加入直播间链接IM失败" completion:nil];
+    } tokenIncorrect:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+        [self showAlertWithMessage:@"加入直播间token无效" completion:nil];
+    }];
+    
+    
 }
 
 - (void)showAlertWithMessage:(NSString *)message completion:(void (^)(void))completion
@@ -79,13 +109,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -9,21 +9,28 @@
 #import "PLPlayerViewController.h"
 #import <PLPlayerKit/PLPlayerKit.h>
 #import "UIAlertView+BlocksKit.h"
+#import "RCChatRoomView.h"
+#import "RCChatroomWelcome.h"
+#import "RCCRRongCloudIMManager.h"
 
+#define SCREENSIZE [UIScreen mainScreen].bounds.size
 
-@interface PLPlayerViewController ()<PLPlayerDelegate>
+@interface PLPlayerViewController ()<PLPlayerDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) PLPlayer * player;
 @property (nonatomic, strong) NSTimer * timer;
 @property (nonatomic, assign) NSInteger bufferingTime;
+@property (nonatomic, strong) RCChatRoomView * chatRoomView;
+@property (nonatomic, strong) RCCRLiveModel * model;
 
 @end
 
 @implementation PLPlayerViewController
 
-- (instancetype)initWithRoomName:(NSString *)roomName {
+- (instancetype)initWithRoomName:(NSString *)roomName model:(RCCRLiveModel *)model{
     if ([super init]) {
         _roomName = roomName;
+        _model = model;
     }
     return self;
 }
@@ -42,8 +49,29 @@
             
         }else {
             [self setupPlayer:playUrl];
+            [self joinChatRoom];
         }
     }];
+}
+
+- (void)resetBottomGesture:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        [self.chatRoomView setDefaultBottomViewStatus];
+    }
+}
+
+/**
+ 拦截加在整个背景view上的点击手势
+ 
+ @param gestureRecognizer UIGestureRecognizer
+ @param touch UITouch
+ @return BOOL
+ */
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    if ([touch.view isDescendantOfView:self.chatRoomView.bottomBtnContentView] || [touch.view isDescendantOfView:self.chatRoomView.giftListView]) {
+        return NO;
+    }
+    return YES;
 }
 
 - (void)setupUI {
@@ -52,6 +80,29 @@
     self.messageView.alpha = 0;
     self.messageLabel.text = [NSString stringWithFormat:@"房间名： %@复制到剪贴板",self.roomName];
     self.reportButton.layer.cornerRadius = 10.0;
+    CGFloat bottomExtraDistance  = 0;
+    if (@available(iOS 11.0, *)) {
+        bottomExtraDistance = [self getIPhonexExtraBottomHeight];
+    }
+    self.chatRoomView = [[RCChatRoomView alloc] initWithFrame:CGRectMake(0,SCREENSIZE.height - (237 +50)  - bottomExtraDistance,SCREENSIZE.width, 237+50) model:self.model];
+    [self.view addSubview:self.chatRoomView];
+    UITapGestureRecognizer *resetBottomTapGesture =[[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(resetBottomGesture:)];
+          resetBottomTapGesture.delegate = self;
+          [self.view addGestureRecognizer:resetBottomTapGesture];
+}
+
+- (void)joinChatRoom {
+    [[RCIMClient sharedRCIMClient] joinChatRoom:self.model.roomId messageCount:-1 success:^{
+        RCChatroomWelcome *joinChatroomMessage = [[RCChatroomWelcome alloc]init];
+                [joinChatroomMessage setId:[RCCRRongCloudIMManager sharedRCCRRongCloudIMManager].currentUserInfo.userId];
+                [self.chatRoomView sendMessage:joinChatroomMessage pushContent:nil success:nil error:nil];
+    } error:^(RCErrorCode status) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.chatRoomView alertErrorWithTitle:@"提示" message:@"加入聊天室失败" ok:@"知道了"];
+        });
+    }];
 }
 
 - (void)playerInfo {
@@ -128,7 +179,8 @@
     [self.player.playerView removeFromSuperview];
     self.player.delegate = nil;
     self.player = nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:NO];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)reportAction:(id)sender {
     [self showAlertWithMessage:@"您已举报此房间，我们会尽快处理" completion:^{
@@ -172,20 +224,18 @@
     }
 }
 
+- (float)getIPhonexExtraBottomHeight {
+    float height = 0;
+    if (@available(iOS 11.0, *)) {
+        height = [[[UIApplication sharedApplication] keyWindow] safeAreaInsets].bottom;
+    }
+    return height;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
