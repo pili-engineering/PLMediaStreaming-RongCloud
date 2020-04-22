@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:id="@+id/playing_layout"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playing_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.pili.pldroid.player.widget.PLVideoView
         android:id="@+id/pl_video_view"
@@ -12,40 +13,44 @@
 
     <ProgressBar
         android:id="@+id/playing_progress_bar"
-        android:indeterminate="true"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:indeterminate="true" />
 
     <ImageButton
+        android:id="@+id/img_btn_info"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_margin="16dp"
+        android:layout_below="@+id/playing_progress_bar"
         android:layout_gravity="top|start"
-        android:src="@mipmap/log_btn"
+        android:layout_margin="16dp"
         android:background="@color/transparentBackground"
-        android:onClick="onClickLogButton" />
+        android:onClick="onClickLogButton"
+        android:src="@mipmap/log_btn" />
 
     <TextView
         android:id="@+id/playing_log_text"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/img_btn_info"
         android:layout_marginStart="16dp"
-        android:padding="8dp"
+        android:layout_marginTop="50dp"
         android:alpha="0.5"
         android:background="@color/logTextBackground"
-        android:visibility="invisible"
-        android:textColor="@color/white" />
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
 
     <LinearLayout
         android:id="@+id/LoadingView"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/playing_log_text"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -64,21 +69,73 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="24dp">
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
         <ImageButton
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@mipmap/copy"
             android:background="@color/transparentBackground"
-            android:onClick="onClickCopyRoomName" />
+            android:onClick="onClickCopyRoomName"
+            android:src="@mipmap/copy" />
+
         <ImageButton
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@mipmap/close"
+            android:layout_marginTop="16dp"
             android:background="@color/transparentBackground"
-            android:layout_marginStart="16dp"
-            android:onClick="onClickClosePlayer" />
+            android:onClick="onClickClosePlayer"
+            android:src="@mipmap/close" />
     </LinearLayout>
-</FrameLayout>
+
+    <ListView
+        android:id="@+id/chat_listview"
+        android:layout_width="230dp"
+        android:layout_height="152dp"
+        android:layout_above="@+id/bottom_bar"
+        android:layout_margin="8dp"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"
+        android:transcriptMode="alwaysScroll" />
+
+    <com.orzangleli.xdanmuku.DanmuContainerView
+        android:id="@+id/danmuContainerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/img_btn_info" />
+
+    <com.qiniu.droid.niuliving.im.gift.GiftView
+        android:id="@+id/giftView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_btn_info" />
+
+    <fragment
+        android:id="@+id/bottom_bar"
+        android:name="com.qiniu.droid.niuliving.im.panel.BottomPanelFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        tools:layout="@layout/fragment_bottombar"
+        android:layout_margin="8dp"
+        />
+
+    <com.qiniu.droid.niuliving.im.like.HeartLayout
+        android:id="@+id/heart_layout"
+        android:layout_width="86dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="4dp" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:background="@color/white"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

@@ -12,4 +12,16 @@
     <color name="logTextBackground">#49494B</color>
     <color name="red">#CD5849</color>
     <color name="transparentBackground">#0000</color>
+
+    <color name="blink_blue">#3A83F5</color>
+    <color name="blink_black">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="blink_text_grey">#333333</color>
+    <color name="blink_launcher_grey">#666666</color>
+    <color name="blink_green">#006400</color>
+    <color name="blink_grey">#CFCFCE</color>
+    <color name="blink_text_white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="line">#CCCCCC</color>
+    <color name="c999999">#999999</color>
 </resources>

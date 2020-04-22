@@ -36,6 +36,7 @@
     <string name="start_streaming">开始推流</string>
     <string name="cannot_toggle_light_in_front">前置下无法打开闪光灯！！！</string>
     <string name="null_room_name_toast">房间名不能为空！！！</string>
+    <string name="null_user_name_toast">用户名称不能为空！！！</string>
     <string name="failed_open_camera">无法打开摄像头！！!</string>
     <string name="failed_open_microphone">无法打开麦克风！！!</string>
     <string name="ready">就绪</string>>
@@ -45,6 +46,7 @@
     <string name="open_failed">播放地址打开失败！！！</string>
     <string name="get_url_failed">地址获取失败，请检查网络！！！</string>
     <string name="illegal_play_url">非法播放地址！！！</string>
+    <string name="im_connect_error">连接即时通讯失败</string>
     <string name="reconnecting">正在重连...</string>
     <string name="disconnected">连接断开</string>
     <string name="streaming_log_text">推流协议：%1$s\n推流分辨率：%2$d x %3$d\n视频码率：%4$d kbps\n音频码率：%5$d kbps\n视频帧率：%6$d fps\n音频帧率：%7$d fps</string>
@@ -59,4 +61,6 @@
     <string name="agree">同意</string>
     <string name="niuliving_protocol">牛直播用户协议</string>
     <string name="niuliving_protocol_tips">需同意 NiuLiving 用户协议</string>
+
+    <string name="username_mode_hint">用户名称</string>
 </resources>

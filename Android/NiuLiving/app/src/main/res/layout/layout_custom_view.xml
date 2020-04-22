@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/blink_text_grey"
+            android:text="画面裁剪"/>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/sc_crop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:theme="@style/MySwitch"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连麦者(M1)坐标             X"
+            android:textColor="@color/blink_text_grey"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/ev_x"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:textSize="14sp"
+            android:textColor="@color/blink_text_grey"
+            android:text="0"
+            android:inputType="number"
+            android:numeric="integer"
+            android:background="@drawable/shape_input_border"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y"
+            android:textSize="14sp"
+            android:textColor="@color/blink_text_grey"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="14sp"
+            android:textColor="@color/blink_text_grey"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/c999999"
+        android:text="其他连麦者坐标由系统根据高度自动计算"
+        android:textSize="12sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连麦者(M1)画面尺寸      宽"
+            android:textColor="@color/blink_text_grey"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="14sp"
+            android:textColor="@color/blink_text_grey"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="高"
+            android:textSize="14sp"
+            android:textColor="@color/blink_text_grey"
+            android:layout_marginLeft="16dp"/>
+
+        <EditText
+            android:id="@+id/ev_height"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:textSize="14sp"
+            android:inputType="number"
+            android:numeric="integer"
+            android:textColor="@color/blink_text_grey"
+            android:background="@drawable/shape_input_border"
+            android:text="0"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/c999999"
+        android:text="该画面尺寸适用于所有的连麦者"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="按照连麦顺序，在下述位置显示"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/blink_text_grey"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_custom"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>

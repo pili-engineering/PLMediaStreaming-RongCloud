@@ -20,6 +20,7 @@ public class StreamingSettings {
     public static final String TARGET_HEIGHT = "targetHeight";
     public static final String STREAMING_ROOMNAME = "streamingName";
     public static final String PLAYING_ROOMNAME = "playingName";
+    public static final String USERNAME = "userName";
     public static final String DEFAULT_CACHE = "defaultCache";
     public static final String MAX_CACHE = "maxCache";
 

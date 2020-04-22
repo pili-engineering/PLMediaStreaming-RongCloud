@@ -24,6 +24,18 @@
         android:textSize="14sp"
         android:background="@drawable/oval_edit_text_background" />
 
+    <EditText
+        android:id="@+id/username_config_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="14sp"
+        android:hint="@string/username_mode_hint"
+        android:background="@drawable/oval_edit_text_background" />
+
     <Button
         android:id="@+id/start_living_button"
         android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,16 +19,21 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import com.qiniu.droid.niuliving.R;
+import com.qiniu.droid.niuliving.im.DataInterface;
+import com.qiniu.droid.niuliving.im.model.ChatroomInfo;
 import com.qiniu.droid.niuliving.utils.Config;
 import com.qiniu.droid.niuliving.utils.QNAppServer;
 import com.qiniu.droid.niuliving.utils.StreamingSettings;
 import com.qiniu.droid.niuliving.utils.ToastUtils;
+
+import io.rong.imlib.RongIMClient;
 
 public class AddressConfigActivity extends AppCompatActivity {
     private static final String PLAY_URL_REGEX = "(rtmp|http)://[-a-zA-Z0-9._?=/%&+~]+";
     private static final String PLAY_ROOMNAME_REGEX = "[-a-zA-Z0-9_]+";
 
     private EditText mAddressConfigEditText;
+    private EditText mUserNameConfigEditText;
     private Button mStartLivingButton;
     private RadioButton mProtocolRadioButton;
     private LinearLayout mProtocolLayout;
@@ -45,6 +51,7 @@ public class AddressConfigActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_address_config);
         mAddressConfigEditText = (EditText) findViewById(R.id.address_config_edit_text);
+        mUserNameConfigEditText = (EditText) findViewById(R.id.username_config_edit_text);
         mStartLivingButton = (Button) findViewById(R.id.start_living_button);
         mProtocolLayout = (LinearLayout) findViewById(R.id.protocol_layout);
         mProtocolRadioButton = (RadioButton) findViewById(R.id.protocol_radio_button);
@@ -66,6 +73,9 @@ public class AddressConfigActivity extends AppCompatActivity {
         String roomName = preferences.getString(isStreamingType() ?
                 StreamingSettings.STREAMING_ROOMNAME : StreamingSettings.PLAYING_ROOMNAME, "");
         mAddressConfigEditText.setText(roomName);
+
+        String userName = preferences.getString(StreamingSettings.USERNAME, "");
+        mUserNameConfigEditText.setText(userName);
 
         if (isStreamingType()) {
             mAddressConfigEditText.setHint(R.string.streaming_mode_hint);
@@ -98,7 +108,14 @@ public class AddressConfigActivity extends AppCompatActivity {
                 ToastUtils.s(AddressConfigActivity.this, getString(R.string.null_room_name_toast));
                 return;
             }
+            final String userName = mUserNameConfigEditText.getText().toString().trim();
+            if (TextUtils.isEmpty(userName)) {
+                ToastUtils.s(AddressConfigActivity.this, getString(R.string.null_user_name_toast));
+                return;
+            }
             SharedPreferences.Editor editor = getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE).edit();
+            editor.putString(StreamingSettings.USERNAME, userName);
+
             if (isStreamingType()) {
                 editor.putString(StreamingSettings.STREAMING_ROOMNAME, roomName);
                 editor.apply();
@@ -114,9 +131,28 @@ public class AddressConfigActivity extends AppCompatActivity {
                                     ToastUtils.s(AddressConfigActivity.this, getString(R.string.get_url_failed));
                                     return;
                                 }
-                                Intent intent = new Intent(AddressConfigActivity.this, StreamingActivity.class);
-                                intent.putExtra(Config.STREAMING_URL, url);
-                                startActivity(intent);
+
+                                DataInterface.connectIM(new RongIMClient.ConnectCallback() {
+                                    @Override
+                                    public void onTokenIncorrect() {
+                                        DataInterface.connectIM(this);
+                                    }
+
+                                    @Override
+                                    public void onSuccess(String s) {
+                                        DataInterface.setLogin(userName);
+                                        Intent intent = new Intent(AddressConfigActivity.this, StreamingActivity.class);
+                                        ChatroomInfo chatroomInfo = new ChatroomInfo(roomName, roomName, null, DataInterface.getUserId(), 0);
+                                        intent.putExtra("roominfo", chatroomInfo);
+                                        intent.putExtra(Config.STREAMING_URL, url);
+                                        startActivity(intent);
+                                    }
+
+                                    @Override
+                                    public void onError(RongIMClient.ErrorCode errorCode) {
+                                        ToastUtils.s(AddressConfigActivity.this, getString(R.string.im_connect_error));
+                                    }
+                                });
                             }
                         });
                     }
@@ -145,9 +181,28 @@ public class AddressConfigActivity extends AppCompatActivity {
                                                     : getString(R.string.illegal_play_url));
                                     return;
                                 }
-                                Intent intent = new Intent(AddressConfigActivity.this, PlayingActivity.class);
-                                intent.putExtra(Config.PLAYING_URL, mPlayingUrl);
-                                startActivity(intent);
+
+                                DataInterface.connectIM(new RongIMClient.ConnectCallback() {
+                                    @Override
+                                    public void onTokenIncorrect() {
+                                        DataInterface.connectIM(this);
+                                    }
+
+                                    @Override
+                                    public void onSuccess(String s) {
+                                        DataInterface.setLogin(userName);
+                                        Intent intent = new Intent(AddressConfigActivity.this, PlayingActivity.class);
+                                        ChatroomInfo chatroomInfo = new ChatroomInfo(roomName, roomName, null, DataInterface.getUserId(), 0);
+                                        intent.putExtra("roominfo", chatroomInfo);
+                                        intent.putExtra(Config.PLAYING_URL, mPlayingUrl);
+                                        startActivity(intent);
+                                    }
+
+                                    @Override
+                                    public void onError(RongIMClient.ErrorCode errorCode) {
+                                        ToastUtils.s(AddressConfigActivity.this, getString(R.string.im_connect_error));
+                                    }
+                                });
                             }
                         });
                     }

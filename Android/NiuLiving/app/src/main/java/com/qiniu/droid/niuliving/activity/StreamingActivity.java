@@ -3,9 +3,11 @@ package com.qiniu.droid.niuliving.activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.hardware.Camera;
-import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,27 +15,50 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidadvance.topsnackbar.TSnackbar;
+import com.orzangleli.xdanmuku.DanmuContainerView;
 import com.qiniu.droid.niuliving.R;
+import com.qiniu.droid.niuliving.StreamingApplication;
+import com.qiniu.droid.niuliving.im.ChatroomKit;
+import com.qiniu.droid.niuliving.im.DataInterface;
+import com.qiniu.droid.niuliving.im.adapter.ChatListAdapter;
+import com.qiniu.droid.niuliving.im.danmu.DanmuAdapter;
+import com.qiniu.droid.niuliving.im.danmu.DanmuEntity;
+import com.qiniu.droid.niuliving.im.gift.GiftSendModel;
+import com.qiniu.droid.niuliving.im.gift.GiftView;
+import com.qiniu.droid.niuliving.im.like.HeartLayout;
+import com.qiniu.droid.niuliving.im.message.ChatroomBarrage;
+import com.qiniu.droid.niuliving.im.message.ChatroomGift;
+import com.qiniu.droid.niuliving.im.message.ChatroomLike;
+import com.qiniu.droid.niuliving.im.message.ChatroomUserQuit;
+import com.qiniu.droid.niuliving.im.message.ChatroomWelcome;
+import com.qiniu.droid.niuliving.im.model.ChatroomInfo;
+import com.qiniu.droid.niuliving.im.model.NeedLoginEvent;
+import com.qiniu.droid.niuliving.im.panel.BottomPanelFragment;
+import com.qiniu.droid.niuliving.im.panel.InputPanel;
 import com.qiniu.droid.niuliving.ui.CameraPreviewFrameView;
 import com.qiniu.droid.niuliving.ui.RotateLayout;
 import com.qiniu.droid.niuliving.utils.Config;
+import com.qiniu.droid.niuliving.utils.DialogUtils;
+import com.qiniu.droid.niuliving.utils.LogUtils;
 import com.qiniu.droid.niuliving.utils.QNAppServer;
 import com.qiniu.droid.niuliving.utils.StreamingSettings;
 import com.qiniu.droid.niuliving.utils.ToastUtils;
 import com.qiniu.pili.droid.streaming.AVCodecType;
 import com.qiniu.pili.droid.streaming.CameraStreamingSetting;
 import com.qiniu.pili.droid.streaming.MediaStreamingManager;
-import com.qiniu.pili.droid.streaming.MicrophoneStreamingSetting;
 import com.qiniu.pili.droid.streaming.StreamStatusCallback;
 import com.qiniu.pili.droid.streaming.StreamingProfile;
 import com.qiniu.pili.droid.streaming.StreamingSessionListener;
@@ -42,8 +67,18 @@ import com.qiniu.pili.droid.streaming.StreamingStateChangedListener;
 
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Random;
 
-public class StreamingActivity extends AppCompatActivity {
+import de.greenrobot.event.EventBus;
+import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.Conversation;
+import io.rong.imlib.model.MessageContent;
+import io.rong.message.TextMessage;
+
+import static com.qiniu.droid.niuliving.im.DataInterface.DEfALUT_AVATAR;
+import static com.qiniu.droid.niuliving.im.DataInterface.getUri;
+
+public class StreamingActivity extends AppCompatActivity implements Handler.Callback {
     public static final String TAG = "StreamingActivity";
 
     private static final int MESSAGE_ID_RECONNECTING = 0x01;
@@ -66,6 +101,23 @@ public class StreamingActivity extends AppCompatActivity {
     private int mEncodingHeight;
     private String mRoomName;
 
+    protected BottomPanelFragment bottomPanel;
+    private ImageView btnHeart;
+    private ListView chatListView;
+    private HeartLayout heartLayout;
+    private ChatListAdapter chatListAdapter;
+    private DanmuContainerView danmuContainerView;
+    private GiftView giftView;
+
+    private Random random = new Random();
+    long currentTime = 0;
+    int clickCount = 0;
+    long banStartTime = 0;
+
+    protected ChatroomInfo mInfo;
+    protected String roomId;
+    protected Handler handler = new Handler(this);
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +129,21 @@ public class StreamingActivity extends AppCompatActivity {
 
         mLogText = (TextView) findViewById(R.id.log_text);
         mToggleLightButton = (ImageButton) findViewById(R.id.toggle_light_button);
+
+        chatListView = (ListView) findViewById(R.id.chat_listview);
+        bottomPanel = (BottomPanelFragment) getSupportFragmentManager().findFragmentById(R.id.bottom_bar);
+        btnHeart = (ImageView) bottomPanel.getView().findViewById(R.id.btn_heart);
+        heartLayout = (HeartLayout) findViewById(R.id.heart_layout);
+        chatListAdapter = new ChatListAdapter(this);
+        chatListView.setAdapter(chatListAdapter);
+
+        danmuContainerView = (DanmuContainerView) findViewById(R.id.danmuContainerView);
+        danmuContainerView.setAdapter(new DanmuAdapter(this));
+
+        giftView = (GiftView) findViewById(R.id.giftView);
+        giftView.setViewCount(2);
+        giftView.init();
+
         CameraPreviewFrameView cameraPreviewFrameView = (CameraPreviewFrameView) findViewById(R.id.camera_preview_surfaceview);
 
         SharedPreferences preferences = getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE);
@@ -152,6 +219,45 @@ public class StreamingActivity extends AppCompatActivity {
         }
 
         mMediaStreamingManager.prepare(cameraStreamingSetting, null, null, mStreamingProfile);
+
+
+        btnHeart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (DataInterface.isLogin()) {
+                    heartLayout.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            int rgb = Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255));
+                            heartLayout.addHeart(rgb);
+                        }
+                    });
+                    clickCount++;
+                    currentTime = System.currentTimeMillis();
+                    checkAfter(currentTime);
+                } else {
+                    EventBus.getDefault().post(new NeedLoginEvent(true));
+                }
+            }
+        });
+        bottomPanel.setInputPanelListener(new InputPanel.InputPanelListener() {
+            @Override
+            public void onSendClick(String text, int type) {
+                if (type == InputPanel.TYPE_TEXTMESSAGE) {
+                    final TextMessage content = TextMessage.obtain(text);
+                    ChatroomKit.sendMessage(content);
+                } else if (type == InputPanel.TYPE_BARRAGE) {
+                    ChatroomBarrage barrage = new ChatroomBarrage();
+                    barrage.setContent(text);
+                    ChatroomKit.sendMessage(barrage);
+                }
+
+            }
+        });
+
+        bottomPanel.setOptionViewIsDisplay(false);
+
+        initChatRoom();
     }
 
     @Override
@@ -325,11 +431,11 @@ public class StreamingActivity extends AppCompatActivity {
                     break;
                 case OPEN_CAMERA_FAIL:
                     Log.d(TAG, "onStateChanged state:" + "open camera failed");
-                    showToast( getString(R.string.failed_open_camera), Toast.LENGTH_SHORT);
+                    showToast(getString(R.string.failed_open_camera), Toast.LENGTH_SHORT);
                     break;
                 case AUDIO_RECORDING_FAIL:
                     Log.d(TAG, "onStateChanged state:" + "audio recording failed");
-                    showToast( getString(R.string.failed_open_microphone), Toast.LENGTH_SHORT);
+                    showToast(getString(R.string.failed_open_microphone), Toast.LENGTH_SHORT);
                     break;
                 case IOERROR:
                     /**
@@ -337,7 +443,7 @@ public class StreamingActivity extends AppCompatActivity {
                      * You can do reconnecting or just finish the streaming
                      */
                     Log.d(TAG, "onStateChanged state:" + "io error");
-                    showToast( getString(R.string.streaming_io_error), Toast.LENGTH_SHORT);
+                    showToast(getString(R.string.streaming_io_error), Toast.LENGTH_SHORT);
                     sendReconnectMessage();
                     break;
                 case DISCONNECTED:
@@ -346,7 +452,7 @@ public class StreamingActivity extends AppCompatActivity {
                      * You can do reconnecting in `onRestartStreamingHandled`
                      */
                     Log.d(TAG, "onStateChanged state:" + "disconnected");
-                    showToast( getString(R.string.disconnected), Toast.LENGTH_SHORT);
+                    showToast(getString(R.string.disconnected), Toast.LENGTH_SHORT);
                     // we will process this state in `onRestartStreamingHandled`
                     break;
             }
@@ -428,4 +534,144 @@ public class StreamingActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    //500毫秒后做检查，如果没有继续点击了，发消息
+    public void checkAfter(final long lastTime) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (lastTime == currentTime) {
+                    ChatroomLike likeMessage = new ChatroomLike();
+                    likeMessage.setCounts(clickCount);
+                    ChatroomKit.sendMessage(likeMessage);
+
+                    clickCount = 0;
+                }
+            }
+        }, 500);
+    }
+
+    private void initChatRoom() {
+        mInfo = getIntent().getParcelableExtra("roominfo");
+        roomId = mInfo.getRoomId();
+        ChatroomKit.addEventHandler(handler);
+        DataInterface.setBanStatus(false);
+        joinChatRoom();
+    }
+
+    protected void joinChatRoom() {
+        ChatroomKit.joinChatRoom(roomId, -1, new RongIMClient.OperationCallback() {
+            @Override
+            public void onSuccess() {
+                LogUtils.i(TAG, "加入聊天室成功！");
+                onJoinChatRoom();
+            }
+
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+                ToastUtils.s(StreamingActivity.this, "聊天室加入失败! errorCode = " + errorCode);
+            }
+        });
+    }
+
+    protected void onJoinChatRoom() {
+        if (ChatroomKit.getCurrentUser() == null)
+            return;
+        //发送欢迎信令
+        ChatroomWelcome welcomeMessage = new ChatroomWelcome();
+        welcomeMessage.setId(ChatroomKit.getCurrentUser().getUserId());
+        ChatroomKit.sendMessage(welcomeMessage);
+    }
+
+    public void startBan(final long thisBanStartTime, long duration) {
+        DataInterface.setBanStatus(true);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (banStartTime == thisBanStartTime) {
+                    DataInterface.setBanStatus(false);
+                }
+            }
+        }, duration * 1000 * 60);
+    }
+
+    @Override
+    public boolean handleMessage(android.os.Message msg) {
+        switch (msg.what) {
+            case ChatroomKit.MESSAGE_ARRIVED:
+            case ChatroomKit.MESSAGE_SENT: {
+                MessageContent messageContent = ((io.rong.imlib.model.Message) msg.obj).getContent();
+                String sendUserId = ((io.rong.imlib.model.Message) msg.obj).getSenderUserId();
+                if (messageContent instanceof ChatroomBarrage) {
+                    ChatroomBarrage barrage = (ChatroomBarrage) messageContent;
+                    DanmuEntity danmuEntity = new DanmuEntity();
+                    danmuEntity.setContent(barrage.getContent());
+                    String name = sendUserId;
+                    Uri uri = getUri(StreamingActivity.this, DEfALUT_AVATAR);
+                    if (messageContent != null) {
+                        name = messageContent.getUserInfo().getName();
+                        uri = DataInterface.getAvatarUri(messageContent.getUserInfo().getPortraitUri());
+                    }
+                    danmuEntity.setPortrait(uri);
+                    danmuEntity.setName(name);
+                    danmuEntity.setType(barrage.getType());
+                    danmuContainerView.addDanmu(danmuEntity);
+                } else if (messageContent instanceof ChatroomGift) {
+                    ChatroomGift gift = (ChatroomGift) messageContent;
+                    if (gift.getNumber() > 0) {
+                        GiftSendModel model = new GiftSendModel(gift.getNumber());
+                        model.setGiftRes(DataInterface.getGiftInfo(gift.getId()).getGiftRes());
+                        String name = sendUserId;
+                        Uri uri = getUri(StreamingApplication.getContext(), DEfALUT_AVATAR);
+                        if (messageContent != null) {
+                            name = messageContent.getUserInfo().getName();
+                            uri = DataInterface.getAvatarUri(messageContent.getUserInfo().getPortraitUri());
+                        }
+                        model.setSig("送出" + DataInterface.getGiftNameById(gift.getId()));
+                        model.setNickname(name);
+                        model.setUserAvatarRes(uri.toString());
+                        giftView.addGift(model);
+                    }
+                } else if (((io.rong.imlib.model.Message) msg.obj).getConversationType() == Conversation.ConversationType.CHATROOM) {
+                    io.rong.imlib.model.Message msgObj = (io.rong.imlib.model.Message) msg.obj;
+                    chatListAdapter.addMessage(msgObj);
+
+                    if (messageContent instanceof ChatroomUserQuit) {
+                        String senderUserId = msgObj.getSenderUserId();
+                        if (TextUtils.equals(senderUserId, mInfo.getPubUserId())) {
+                            DialogUtils.showDialog(this, "本次直播结束！", "确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            });
+                        }
+                    } else if (messageContent instanceof ChatroomLike) {
+                        //出点赞的心
+                        for (int i = 0; i < ((ChatroomLike) messageContent).getCounts(); i++) {
+                            heartLayout.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    int rgb = Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255));
+                                    heartLayout.addHeart(rgb);
+                                }
+                            });
+                        }
+                    }
+                }
+                break;
+            }
+            case ChatroomKit.MESSAGE_SEND_ERROR: {
+                Log.d(TAG, "handleMessage Error: " + msg.arg1 + ", " + msg.obj);
+                if (msg.arg1 == RongIMClient.ErrorCode.RC_CHATROOM_NOT_EXIST.getValue()) {
+                    DialogUtils.showDialog(StreamingActivity.this, "1 小时内无人讲话，聊天室已被解散，请退出后重进");
+                }
+                break;
+            }
+            default:
+        }
+        chatListAdapter.notifyDataSetChanged();
+        return false;
+    }
 }

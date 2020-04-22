@@ -15,4 +15,23 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="MySwitch" parent="Theme.AppCompat.Light">
+        <!--开启时的颜色-->
+        <item name="colorControlActivated">@color/blink_blue</item>
+        <!--关闭时的颜色-->
+        <item name="colorSwitchThumbNormal">@color/blink_launcher_grey</item>
+        <!--关闭时的轨迹颜色取30%的颜色-->
+        <item name="android:colorForeground">@color/blink_launcher_grey</item>
+    </style>
+
+    <style name="adaptive_ic_layout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blink_text_grey</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
 </resources>
