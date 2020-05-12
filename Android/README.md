@@ -25,4 +25,4 @@
 * **即时通讯 IMLib SDK**  可详细查看 [IMLib SDK 开发指南](https://www.rongcloud.cn/docs/android.html)
 
 ### 使用到的七牛推流 SDK
-**有关于七牛推流 SDK 的功能请参考[七牛推流介绍文档](https://developer.qiniu.com/pili/sdk/3715/PLDroidMediaStreaming-overview)**
+* **有关于七牛推流 SDK 的功能请参考[七牛推流介绍文档](https://developer.qiniu.com/pili/sdk/3715/PLDroidMediaStreaming-overview)**
