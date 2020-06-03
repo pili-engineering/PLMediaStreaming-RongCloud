@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.qiniu.droid.niuliving.R;
@@ -32,6 +33,8 @@ public class BottomPanelFragment extends Fragment {
 
     private int mVideoWidth;
     private int mVideoHeight;
+
+    private int softInputHeight;
 
     public void setVideoFrameSize(int videoWidth, int videoHeight) {
         mVideoHeight = videoHeight;
@@ -65,6 +68,7 @@ public class BottomPanelFragment extends Fragment {
             public void onClick(View v) {
                 if (isLoginAndCanInput()) {
                     inputPanel.setVisibility(View.VISIBLE);
+                    isShowInputAboveKeyboard(true);
                     inputPanel.setType(InputPanel.TYPE_TEXTMESSAGE);
                 }
             }
@@ -143,5 +147,19 @@ public class BottomPanelFragment extends Fragment {
 
     public void setInputPanelListener(InputPanel.InputPanelListener l) {
         inputPanel.setPanelListener(l);
+    }
+
+    public void setSoftInputHeight(int inputHeight) {
+        this.softInputHeight = inputHeight;
+    }
+
+    public void isShowInputAboveKeyboard(boolean isAboveKeyboard) {
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) inputPanel.getLayoutParams();
+        if (isAboveKeyboard) {
+            layoutParams.bottomMargin = softInputHeight;
+        } else {
+            layoutParams.bottomMargin = 0;
+        }
+        inputPanel.setLayoutParams(layoutParams);
     }
 }

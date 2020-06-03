@@ -6,16 +6,17 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -49,6 +50,7 @@ import com.qiniu.droid.niuliving.im.model.ChatroomInfo;
 import com.qiniu.droid.niuliving.im.model.NeedLoginEvent;
 import com.qiniu.droid.niuliving.im.panel.BottomPanelFragment;
 import com.qiniu.droid.niuliving.im.panel.InputPanel;
+import com.qiniu.droid.niuliving.im.utils.CommonUtils;
 import com.qiniu.droid.niuliving.utils.Config;
 import com.qiniu.droid.niuliving.utils.DialogUtils;
 import com.qiniu.droid.niuliving.utils.LogUtils;
@@ -185,6 +187,23 @@ public class PlayingActivity extends AppCompatActivity implements Handler.Callba
                 }
             }
         });
+
+        // 添加软键盘弹出监听，记录软键盘高度
+        addOnSoftKeyBoardVisibleListener(findViewById(R.id.playing_layout), new SoftInputStatusListener() {
+            @Override
+            public void onSoftInputStatusChanged(boolean visible, int softInputHeight) {
+                if (visible) {
+                    bottomPanel.setSoftInputHeight(softInputHeight);
+                    bottomPanel.isShowInputAboveKeyboard(true);
+                } else {
+                    bottomPanel.isShowInputAboveKeyboard(false);
+                }
+            }
+        });
+
+        // 进入时先显示软键盘来预先计算软键盘高度
+        CommonUtils.showInputMethod(this, mLogText);
+        CommonUtils.hideInputMethod(this, mLogText);
 
         initChatRoom();
     }
@@ -484,5 +503,39 @@ public class PlayingActivity extends AppCompatActivity implements Handler.Callba
         }
         chatListAdapter.notifyDataSetChanged();
         return false;
+    }
+
+    public void addOnSoftKeyBoardVisibleListener(final View root, final SoftInputStatusListener listener) {
+        root.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            private boolean isVisibleForLast = false;
+
+            @Override
+            public void onGlobalLayout() {
+                Rect rect = new Rect();
+                root.getWindowVisibleDisplayFrame(rect);
+                // 可见屏幕的高度
+                int displayHeight = rect.bottom - rect.top;
+                // 屏幕整体的高度
+                int height = root.getHeight();
+                // 键盘高度
+                int keyboardHeight = height - displayHeight;
+                boolean visible = (double) displayHeight / height < 0.8;
+                if (visible != isVisibleForLast) {
+                    listener.onSoftInputStatusChanged(visible, keyboardHeight);
+                }
+                isVisibleForLast = visible;
+            }
+        });
+    }
+
+    interface SoftInputStatusListener {
+        void onSoftInputStatusChanged(boolean toVisible, int keyboardHeight);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(!bottomPanel.onBackAction()){
+            super.onBackPressed();
+        }
     }
 }
